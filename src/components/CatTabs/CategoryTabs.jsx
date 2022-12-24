@@ -1,4 +1,4 @@
-import { Box, Container, Tab, Tabs } from '@mui/material'
+import { AppBar, Box, Container, Tab, Tabs } from '@mui/material'
 import React from 'react'
 import {useState} from 'react'
 import {FcHome} from 'react-icons/fc'
@@ -26,12 +26,14 @@ const CategoryTabs = () => {
   return (
         <Container maxWidth='md'>
             <Box sx={{display:'flex', flexGrow:1, mt:2, mb:2, justifyContent:'center'}}>
+
                 <Tabs value={value} onChange={handleChange} variant='scrollable' allowScrollButtonsMobile >
+               
                     {CategoryTabsData.map((item)=>{
                         return (
                             <Tab key={item.id} label={item.name} icon={item.icon}></Tab>
-                        )
-                    })}
+                            )
+                        })}
                 </Tabs>
             </Box>
         </Container>
