@@ -7,6 +7,7 @@ import { BsFillBagCheckFill} from 'react-icons/bs'
 import {CgProfile} from 'react-icons/cg'
 import AppContext from '../../context/GreenwoodAppContext'
 import {GiForkKnifeSpoon} from 'react-icons/gi'
+import { TabContext, TabList } from '@mui/lab';
 
 
 
@@ -21,7 +22,7 @@ const TabsMenu = [
 
 const NavTabs = () => {
 
-    const [value, setValue] = useState(0)
+    const [value, setValue] = useState(1)
 
     const handleChange = (event, newValue)=>{
         setValue(newValue)
@@ -30,16 +31,19 @@ const NavTabs = () => {
   return (
     // <Box  sx={{display:'flex', alignItems:'center', justifyContent:'center', backgroundColor:'#173632', position:'sticky',}}>
         <Stack sx={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
-           <Tabs  value={value} onChange={handleChange} variant='scrollable' allowScrollButtonsMobile  indicatorColor="primary" >
+            <TabContext value={value} >
+           <TabList  onChange={handleChange} variant='scrollable' allowScrollButtonsMobile  indicatorColor="primary" >
                 {TabsMenu.map((item)=>{
                     return ( 
-                            <Tab key={item.id} label={item.name} icon={item.icon} />
+                            <Tab key={item.id} label={item.name} icon={item.icon} value={item.id} />
                     )
                 })}
-           </Tabs>
-        {/* <TabPanel value={value} index={1}>
-            <Typography>Hello Word</Typography>
-        </TabPanel> */}
+           </TabList>
+            <TabPanel value='1' >
+                    <Typography>Hello Word</Typography>
+                </TabPanel>
+           </TabContext>
+       
         </Stack>
     // </Box>
   )

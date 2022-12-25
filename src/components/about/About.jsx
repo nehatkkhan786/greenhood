@@ -5,7 +5,7 @@ import './About.css'
 
 const About = () => {
   return (
-   <Box sx={{display:'flex', mt:2}}>
+   <Box sx={{display:'flex', mt:4, mb:4}}>
         <Container maxWidth='md'>
             <Box sx={{display:'flex',flexDirection:'column',  alignItems:'center', justifyContent:'center', textAlign:'center'}}>
                 <Box sx={{ }}>
